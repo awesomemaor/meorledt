@@ -12,21 +12,15 @@ function App() {
   };
 
   return (
-    <div className="relative h-screen">
-      {/* סרטון כרקע */}
+<div className="relative">
+      {/* רקע וידאו */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0 transform opacity-80"
+        src="background.mp4" // הנתיב לסרטון
         autoPlay
         loop
         muted
-      >
-        
-        
-       <source src="/background.mp4" type="video/mp4" />
-           הדפדפן שלך לא תומך בוידאו.
-      </video>
-        
-
+      />
       {/* תוכן האתר */}
       <div
         className={`${isDarkMode ? 'dark' : ''} relative z-10`}

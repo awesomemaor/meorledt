@@ -3,7 +3,7 @@ import React from 'react';
 function Home() {
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-700 to-purple-600 text-white">
+    <div className="min-h-screen  text-white">
       <header className="w-full py-8">
         <h1 className="text-6xl font-extrabold text-center drop-shadow-lg">
           <span className="text-white">מעור</span>
