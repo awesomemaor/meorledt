@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css'; 
+import './index.css';
 import Header from './comp/Header';
 import Home from './comp/Home';
 import Next from './comp/Next';
@@ -12,26 +12,60 @@ function App() {
   };
 
   return (
-    // הוספנו את המחלקה custom-cursor לשינוי סמן העכבר
-    <div className={`${isDarkMode ? 'dark' : ''} custom-cursor`}>
-      <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
-      <main className="scroll-smooth">
-        <section id="home">
-          <Home />
-        </section>
-        <section id="next" className="bg-gradient-to-b from-indigo-700 to-purple-600  h-screen bg-gray-400 flex items-center justify-center">
-          <Next />
-        </section>
-        <section id="gallery" className="h-screen bg-gray-300 flex items-center justify-center">
-          <h2 className="text-4xl font-bold">גלריית זכרונות</h2>
-        </section>
-        <section id="about" className="h-screen bg-gray-200 flex items-center justify-center">
-          <h2 className="text-4xl font-bold">אודות</h2>
-        </section>
-        <section id="contact" className="h-screen bg-gray-100 flex items-center justify-center">
-          <h2 className="text-4xl font-bold">צור קשר</h2>
-        </section>
-      </main>
+    <div className="relative h-screen">
+      {/* סרטון כרקע */}
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+      >
+        
+        
+       <source src="/background.mp4" type="video/mp4" />
+           הדפדפן שלך לא תומך בוידאו.
+      </video>
+        
+
+      {/* תוכן האתר */}
+      <div
+        className={`${isDarkMode ? 'dark' : ''} relative z-10`}
+        style={{ cursor: "url('/crusorface.png'), auto" }}
+      >
+        <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+        <main className="scroll-smooth">
+          <section id="home">
+            <Home />
+          </section>
+          <section
+            id="next"
+            className="bg-gradient-to-b from-indigo-700 to-purple-600 h-screen bg-gray-400 flex items-center justify-center"
+          >
+            <Next />
+          </section>
+          <section
+            id="gallery"
+            className="h-screen bg-gray-300 flex items-center justify-center"
+          >
+            <h2 className="text-4xl font-bold">גלריית זכרונות</h2>
+          </section>
+          <section
+            id="about"
+            className="h-screen bg-gray-200 flex items-center justify-center"
+          >
+            <h2 className="text-4xl font-bold">אודות</h2>
+          </section>
+          <section
+            id="contact"
+            className="h-screen bg-gray-100 flex items-center justify-center"
+          >
+            <h2 className="text-4xl font-bold">צור קשר</h2>
+          </section>
+        </main>
+      </div>
+
+      {/* שכבת רקע כהה (לא חובה) */}
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 z-0"></div>
     </div>
   );
 }
