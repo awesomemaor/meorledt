@@ -90,7 +90,7 @@ function Gallery() {
             {item.type === "image" ? (
               <img
                 src={item.src}
-                alt={`מדיה ${index + 1}`}
+                alt={`media ${index + 1}`}
                 className="w-full h-full object-cover transition-all duration-500 ease-in-out transform hover:scale-105 hover:opacity-90"
               />
             ) : (

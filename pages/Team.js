@@ -36,7 +36,7 @@ function Team() {
       <div className="container mx-auto text-center mb-16" data-aos="fade-up">
         <h3 className="text-white font-bold text-2xl mb-4">מאור סיבוני ״המעור״</h3>
         <img
-          src="/maor.png" // תמונה קטנה 1
+          src="/maor.jpg" // תמונה קטנה 1
           alt="מאור סיבוני"
           className="w-40 h-40 object-cover rounded-full mx-auto shadow-lg"
         />
@@ -48,7 +48,7 @@ function Team() {
         <div className="text-center" data-aos="fade-up">
           <h3 className="text-white font-bold text-lg mb-4">שחף ישראל ״הפולי״</h3>
           <img
-            src="/shahaf.png"
+            src="/shahaf.jpg"
             alt="שחף ישראל"
             className="w-32 h-32 object-cover rounded-full mx-auto shadow-lg"
           />
@@ -58,7 +58,7 @@ function Team() {
         <div className="text-center" data-aos="fade-up" data-aos-delay="200">
           <h3 className="text-white font-bold text-lg mb-4">איתי ובר ״הלכלכוך״</h3>
           <img
-            src="/itaydirty.png"
+            src="/itaydirty.jpg"
             alt="איתי ובר"
             className="w-32 h-32 object-cover rounded-full mx-auto shadow-lg"
           />
@@ -68,7 +68,7 @@ function Team() {
         <div className="text-center" data-aos="fade-up" data-aos-delay="400">
           <h3 className="text-white font-bold text-lg mb-4">ירין יצחק ״הארגז״</h3>
           <img
-            src="/yarin.png"
+            src="/yarin.jpg"
             alt="ירין יצחק"
             className="w-32 h-32 object-cover rounded-full mx-auto shadow-lg"
           />
@@ -81,7 +81,7 @@ function Team() {
         <div className="text-center" data-aos="fade-up" data-aos-delay="600">
           <h3 className="text-white font-bold text-lg mb-4">תומר דויב ״הסאחי״</h3>
           <img
-            src="/tomer.png"
+            src="/tomer.jpg"
             alt="תומר דויב"
             className="w-32 h-32 object-cover rounded-full mx-auto shadow-lg"
           />
