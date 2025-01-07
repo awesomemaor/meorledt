@@ -7,6 +7,7 @@ import Header from '/comp/Header'; // ה-Header שלך
 import Next from './Next'; // דף הבא
 import Gallery from './Gallery'
 import Team from './Team'; // ייבוא של קומפוננטת Team
+import Contact from './Contact';
 
 function MyApp({ Component, pageProps }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -43,6 +44,10 @@ function MyApp({ Component, pageProps }) {
 
       <section id="team" className="bg-gradient-to-b from-indigo-700 to-purple-600 min-h-screen flex items-center justify-center">
         <Team />
+      </section>
+    
+      <section id="contact" className="bg-gradient-to-b from-indigo-700 to-purple-600 min-h-screen flex items-center justify-center">
+        <Contact />
       </section>
 
     </div>

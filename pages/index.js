@@ -1,6 +1,11 @@
 import React from 'react';
+import { useRouter } from 'next/router';
+
 
 function Index() {
+
+  const router = useRouter();
+
   return (
     <div className="min-h-screen text-white" style={{ cursor: "url('/crusorface.png'), auto" }}>
       {/* הגדרת וידאו כרקע */}

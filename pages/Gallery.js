@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";  // הוספת useEffect
 import AOS from "aos";
 import "aos/dist/aos.css"; 
+
 function Gallery() {
   // רשימת המדיה: תמונות וסרטונים
   const mediaItems = [
