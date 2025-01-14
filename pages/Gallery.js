@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";  // הוספת useEffect
+import React, { useEffect, useState } from "react";  // הוספת useEffect
 import AOS from "aos";
 import "aos/dist/aos.css"; 
 
@@ -54,29 +54,35 @@ function Gallery() {
     { type: "video", src: "/gallerypage/video23.mp4" },
     { type: "video", src: "/gallerypage/video24.mp4" },
   ];
+
+  const [shuffledItems, setShuffledItems] = useState(mediaItems);
+
   useEffect(() => {
     // אתחול של AOS
     AOS.init({
-      duration: 1000, // משך האנימציה
-      once: false, // ייתן לבצע את האנימציה כל פעם כשגללים אל האלמנט
+      duration: 1000,
+      once: false,
     });
-  }, []);
 
-  // ערבוב אקראי של הפריטים
-  const shuffledItems = mediaItems.sort(() => Math.random() - 0.5);
+    // ערבוב הפריטים בצד הלקוח בלבד
+    const shuffled = [...mediaItems].sort(() => Math.random() - 0.5);
+    setShuffledItems(shuffled);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-700 via-purple-600 to-pink-500 py-16">
       <div className="text-center mb-12">
-      <h1
+        <h1
           className="text-6xl text-white font-extrabold tracking-wide drop-shadow-md"
           data-aos="fade-down"
         >
           🌟 גלריית הזכרונות 🌟
         </h1>
-        <p className="text-xl text-white mt-4 "
-        data-aos="fade-up">
-      ״החוויות שכבר שחכנו נזכור ברגעים שתפסנו״
+        <p
+          className="text-xl text-white mt-4"
+          data-aos="fade-up"
+        >
+          ״החוויות שכבר שחכנו נזכור ברגעים שתפסנו״
         </p>
       </div>
 
@@ -85,7 +91,9 @@ function Gallery() {
           <div
             key={index}
             className={`relative overflow-hidden rounded-lg bg-black ${
-              item.type === "video" && Math.random() > 0.85 ? "col-span-2 row-span-2" : ""
+              item.type === "video" && Math.random() > 0.85
+                ? "col-span-2 row-span-2"
+                : ""
             }`}
           >
             {item.type === "image" ? (

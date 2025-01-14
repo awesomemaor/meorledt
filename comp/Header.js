@@ -1,50 +1,79 @@
-import React from 'react';
+import React, { useState } from 'react';
+import StaggeredDropDown from './StaggeredDropDown';
+import CanvasAnimation from './CanvasAnimation';
+import Link from 'next/link';
 
-function Header({ toggleTheme, isDarkMode }) {
+function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleScrollTo = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // אם זה במובייל, נסגור את התפריט אחרי לחיצה
+    if (window.innerWidth <= 768) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
-    <header className="bg-gradient-to-r from-purple-900 to-purple-600 text-white py-4 shadow-lg sticky top-0 z-50">
-      <nav className="container mx-auto flex justify-between items-center px-4">
-        <h1 className="text-3xl font-extrabold tracking-widest">
-          <span className="text-purple-300">מעור</span>
-          <span className="text-white">לדת</span>
-        </h1>
-        <ul className="flex space-x-7 text-lg">
-          <li>
-            <a href="#contact" className="hover:text-purple-300 transition duration-500">
+    <header id="main-header" className="bg-gradient-to-r from-purple-900 to-purple-600 text-white py-2 shadow-lg sticky top-0 z-50">
+      <nav className="container mx-auto flex flex-col lg:flex-row justify-between items-center px-4 space-y-2 lg:space-y-0">
+        {/* כותרת */}
+        <div className="flex flex-col items-center lg:items-start">
+          <h1 className="text-2xl lg:text-3xl font-extrabold tracking-widest">
+            <span className="text-purple-300">מעור</span>
+            <span className="text-white">לדת</span>
+          </h1>
+        </div>
+
+        {/* כפתור המבורגר - יוצג רק במובייל */}
+        <div className="lg:hidden">
+          <StaggeredDropDown isOpen={isMenuOpen} toggleMenu={toggleMenu} />
+        </div>
+
+        {/* תפריט ניווט - יוצג רק בגדלים גדולים */}
+        <ul
+          className={`${
+            isMenuOpen ? 'flex' : 'hidden'
+          } lg:flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-7 items-center text-lg bg-purple-800 lg:bg-transparent rounded-lg shadow-lg p-4 lg:p-0`}
+        >
+          <li className="hover:bg-purple-500 hover:text-white rounded-lg transition-all duration-300">
+            <Link href="#contact">
               צור קשר
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#team" className="hover:text-purple-300 transition duration-500">
+          <li className="hover:bg-purple-500 hover:text-white rounded-lg transition-all duration-300">
+            <Link href="#team">
               חדשות הבידור
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#gallery" className="hover:text-purple-300 transition duration-500">
+          <li className="hover:bg-purple-500 hover:text-white rounded-lg transition-all duration-300">
+            <Link href="#alcohol">
+              עולם האלכוהול
+            </Link>
+          </li>
+          <li className="hover:bg-purple-500 hover:text-white rounded-lg transition-all duration-300">
+            <Link href="#gallery">
               גלריית זכרונות
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#next" className="hover:text-purple-300 transition duration-500">
+          <li className="hover:bg-purple-500 hover:text-white rounded-lg transition-all duration-300">
+            <Link href="#next">
               מעורלדת 2025
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#index" className="hover:text-purple-300 transition duration-500">
+          <li className="hover:bg-purple-500 hover:text-white rounded-lg transition-all duration-300">
+            <Link href="/">
               דף הבית
-            </a>
+            </Link>
           </li>
         </ul>
-        <button
-          onClick={toggleTheme}
-          className="bg-purple-500 hover:bg-purple-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-300"
-        >
-          <img 
-            src={isDarkMode ? '/icons8-sun-50.png' : '/icons8-dark-mode-50.png'} 
-            alt="theme icon" 
-            className='w-8 h-8' 
-          />
-        </button>
       </nav>
     </header>
   );

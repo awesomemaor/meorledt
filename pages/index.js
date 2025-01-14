@@ -1,11 +1,6 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-
 
 function Index() {
-
-  const router = useRouter();
-
   return (
     <div className="min-h-screen text-white" style={{ cursor: "url('/crusorface.png'), auto" }}>
       {/* הגדרת וידאו כרקע */}
@@ -19,7 +14,7 @@ function Index() {
 
       {/* כותרת הדף */}
       <header className="w-full py-8 relative z-10">
-        <h1 className="text-6xl font-extrabold text-center drop-shadow-lg">
+        <h1 className="text-4xl sm:text-6xl font-extrabold text-center drop-shadow-lg">
           <span className="text-white">מעור</span>
           <span className="text-purple-700">לדת</span>
         </h1>
@@ -29,10 +24,10 @@ function Index() {
       <main className="flex flex-col items-center m-8 space-y-16 relative z-10">
         {/* פסקה מרכזית */}
         <div className="bg-gradient-to-b from-purple-500 bg-opacity-3 p-8 rounded-lg shadow-lg max-w-4xl text-center border border-purple-500">
-          <h2 className="text-4xl font-semibold text-purple-300 leading-snug">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-purple-300 leading-snug">
             ברוכים הבאים לאתר הרשמי של <span className="text-purple-400">מעורלדת</span>
           </h2>
-          <p className="mt-4 text-gray-300  leading-relaxed">
+          <p className="mt-4 text-gray-300 text-sm sm:text-base leading-relaxed">
             כאן מתחיל הסיפור שלכם עם הלילה הכי משוגע, מרגש ובלתי נשכח (או אולי כן נשכח…) של השנה.
             זה המקום שבו כל מה שצריך לדעת על האירוע האגדי מתעורר לחיים – עדכונים חמים, הפתעות מסקרנות, ורמזים שירעידו את הלבבות, יבעירו את הדמיון, וישלחו לכם צמרמורות של התרגשות.
           </p>
@@ -60,10 +55,10 @@ function Index() {
         </div>
 
         {/* כפתורים */}
-        <div className="flex justify-between w-full max-w-2xl mt-8 space-x-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between w-full max-w-2xl mt-8 space-y-4 sm:space-y-0 sm:space-x-4">
           {/* כפתור לחקר העבר */}
           <button
-            className="w-1/2 px-6 py-4 bg-gradient-to-r from-purple-700 to-purple-500 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="w-full sm:w-1/2 px-6 py-4 bg-gradient-to-r from-purple-700 to-purple-500 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             onClick={() => window.location.href = '/gallery'}
           >
             בואו לחקור את העבר
@@ -71,7 +66,7 @@ function Index() {
 
           {/* כפתור לשנה הבאה */}
           <button
-            className="w-1/2 px-6 py-4 bg-gradient-to-r from-purple-500 to-purple-400 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="w-full sm:w-1/2 px-6 py-4 bg-gradient-to-r from-purple-500 to-purple-400 text-white text-lg font-semibold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             onClick={() => window.location.href = '/next'}
           >
             ?מה מחכה לנו ב-2025

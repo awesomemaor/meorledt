@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden; /* מונע גלילה אופקית */
+      width: 100%; /* מוודא שהרוחב מוגדר */
+      margin: 0;
+      padding: 0;
+    }
+  
+    #main-header {
+      position: fixed; /* שומר על ה-header במקום */
+      top: 0; /* ממקם אותו בראש הדף */
+      left: 0; /* מוודא שהוא מתחיל משמאל */
+      width: 100%; /* מוודא שהרוחב מותאם למסך */
+      z-index: 1000; /* מבטיח שהוא יופיע מעל שאר האלמנטים */
+      background-color: #111; /* רקע כדי להבדיל אותו מהתוכן */
+    }
+  }

@@ -1,13 +1,14 @@
-// pages/_app.js
 import React, { useState } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // לא לשכוח לייבא את הקובץ הזה
-import '/styles/globals.css'; // ייבוא של CSS גלובלי
-import Header from '/comp/Header'; // ה-Header שלך
+import 'aos/dist/aos.css'; // ייבוא של AOS CSS
+import '/styles/globals.css'; // CSS גלובלי
+import Header from '/comp/Header';
 import Next from './Next'; // דף הבא
-import Gallery from './Gallery'
-import Team from './Team'; // ייבוא של קומפוננטת Team
-import Contact from './Contact';
+import Gallery from './Gallery'; // גלריה
+import Alcohol from './Alcohol';
+import Team from './Team'; // קומפוננטת Team
+import Contact from './Contact'; // צור קשר
+
 
 function MyApp({ Component, pageProps }) {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -28,18 +29,21 @@ function MyApp({ Component, pageProps }) {
           Your browser does not support the video tag.
         </video>
         <main className="scroll-smooth relative z-10">
-          {/* דף הבית שלך הוא 'index' */}
           <Component {...pageProps} />
         </main>
       </section>
 
-      {/* חלק הבא עם Next */}
+      {/* חלקים נוספים */}
       <section id="next" className="bg-gradient-to-b from-indigo-700 to-purple-600 min-h-screen flex items-center justify-center">
         <Next />
       </section>
 
       <section id="gallery" className="bg-gradient-to-b from-indigo-700 to-purple-600 min-h-screen flex items-center justify-center">
         <Gallery />
+      </section>
+
+      <section id="alcohol" className="bg-gradient-to-b from-indigo-700 to-purple-600 min-h-screen flex items-center justify-center">
+        <Alcohol />
       </section>
 
       <section id="team" className="bg-gradient-to-b from-indigo-700 to-purple-600 min-h-screen flex items-center justify-center">
@@ -54,4 +58,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default MyApp; 
